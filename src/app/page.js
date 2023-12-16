@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
-import styles from "./page.module.scss"
-import { About, Footer, Header, Skill, Testimonial, Work } from "@/container"
-import { Nav } from "@/components"
+import styles from "./page.module.scss";
+import { About, Footer, Header, Skill, Testimonial, Work } from "@/container";
+import { Nav } from "@/components";
 
 export default function Home() {
   return (
@@ -14,6 +14,7 @@ export default function Home() {
       <Skill />
       <Testimonial />
       <Footer />
+      <div> Test</div>
     </main>
-  )
+  );
 }
