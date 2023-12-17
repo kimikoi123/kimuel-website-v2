@@ -1,42 +1,27 @@
-"use client"
+"use client";
 
-import React, { useState, useEffect } from "react"
-import { motion } from "framer-motion"
-import { Tooltip as ReactTooltip } from "react-tooltip"
+import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import { Tooltip as ReactTooltip } from "react-tooltip";
 
-import { AppWrap, MotionWrap } from "@/wrapper"
-import { urlFor, client } from "@/client/client"
-import "./Skill.scss"
-import Image from "next/image"
+import { AppWrap, MotionWrap } from "@/wrapper";
+import { urlFor, client } from "@/client/client";
+import "./Skill.scss";
+import Image from "next/image";
+import { skillData, experienceData } from "@/constants/data";
 
 function Skill() {
-  const [experiences, setExperiences] = useState([])
-  const [skills, setSkills] = useState([])
-
-  useEffect(() => {
-    const query = '*[_type == "experiences"]'
-    const skillsQuery = '*[_type == "skills"]'
-
-    client.fetch(query).then((data) => {
-      setExperiences(data)
-    })
-
-    client.fetch(skillsQuery).then((data) => {
-      setSkills(data)
-    })
-  }, [])
-
   return (
     <>
       <h2 className="head-text">Skills & Experience</h2>
       <div className="app__skills-container">
         <motion.div className="app__skills-list">
-          {skills.map((skill, index) => (
+          {skillData.map((skill, index) => (
             <motion.div
               whileInView={{ opacity: [0, 1] }}
               transition={{ duration: 0.5 }}
               className="app__skills-item app__flex"
-              key={skill._id}
+              key={index}
             >
               <div
                 className="app__flex"
@@ -54,7 +39,7 @@ function Skill() {
           ))}
         </motion.div>
         <div className="app__skills-exp">
-          {experiences.map((experience, index) => (
+          {experienceData.map((experience, index) => (
             <motion.div className="app__skills-exp-item" key={experience._id}>
               <div className="app__skills-exp-year">
                 <p className="bold-text">{experience.year}</p>
@@ -92,11 +77,11 @@ function Skill() {
         </div>
       </div>
     </>
-  )
+  );
 }
 
 export default AppWrap(
   MotionWrap(Skill, "app__skills"),
   "skills",
   "app__whitebg"
-)
+);

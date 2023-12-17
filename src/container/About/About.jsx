@@ -1,22 +1,14 @@
-"use client"
+"use client";
 
-import React, { useEffect, useState } from "react"
-import "./About.scss"
-import { motion } from "framer-motion"
-import { images } from "@/constants"
-import { urlFor, client } from "@/client/client"
-import { AppWrap, MotionWrap } from "@/wrapper"
-import Image from "next/image"
+import React, { useEffect, useState } from "react";
+import "./About.scss";
+import { motion } from "framer-motion";
+import { images } from "@/constants";
+import { AppWrap, MotionWrap } from "@/wrapper";
+import Image from "next/image";
+import { aboutData } from "@/constants/data";
 
 function About() {
-  const [abouts, setAbouts] = useState([])
-
-  useEffect(() => {
-    const query = '*[_type == "abouts"]'
-
-    client.fetch(query).then((data) => setAbouts(data))
-  }, [])
-
   return (
     <>
       <h2 className="head-text">
@@ -26,7 +18,7 @@ function About() {
       </h2>
 
       <div className="app__profiles">
-        {abouts.map((about, index) => (
+        {aboutData.map((about, index) => (
           <motion.div
             whileInView={{ opacity: 1 }}
             whileHover={{ scale: 1.1 }}
@@ -37,7 +29,7 @@ function About() {
             <Image
               width={1000}
               height={1000}
-              src={urlFor(about.imageurl).url()}
+              src={about.imageurl}
               alt={about.name}
             />
             <h2 className="bold-text" style={{ marginTop: 20 }}>
@@ -49,12 +41,14 @@ function About() {
           </motion.div>
         ))}
       </div>
+
+      <div className="app__profiles"></div>
     </>
-  )
+  );
 }
 
 export default AppWrap(
   MotionWrap(About, "app__about"),
   "about",
   "app__primarybg"
-)
+);
