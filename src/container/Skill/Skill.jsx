@@ -30,7 +30,7 @@ function Skill() {
                 <Image
                   width={1000}
                   height={1000}
-                  src={urlFor(skill.icon).url()}
+                  src={skill.icon}
                   alt={skill.name}
                 />
               </div>
@@ -40,13 +40,13 @@ function Skill() {
         </motion.div>
         <div className="app__skills-exp">
           {experienceData.map((experience, index) => (
-            <motion.div className="app__skills-exp-item" key={experience._id}>
+            <motion.div className="app__skills-exp-item" key={index}>
               <div className="app__skills-exp-year">
                 <p className="bold-text">{experience.year}</p>
               </div>
               <motion.div className="app__skills-exp-works">
                 {experience.works.map((work, index) => (
-                  <div key={work._key}>
+                  <div key={index}>
                     <motion.div
                       whileInView={{ opacity: [0, 1] }}
                       transition={{ duration: 0.5 }}

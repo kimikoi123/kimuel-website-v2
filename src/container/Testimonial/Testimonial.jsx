@@ -25,7 +25,7 @@ const Testimonial = () => {
             <Image
               width={1000}
               height={1000}
-              src={urlFor(testimonialData[currentIndex].imageurl).url()}
+              src={testimonialData[currentIndex].imageurl}
               alt={testimonialData[currentIndex].name}
             />
             <div className="app__testimonial-content">

@@ -29,8 +29,23 @@ import circle from "../assets/circle.svg";
 import mongodb from "../assets/mongodb.svg";
 import nextjs from "../assets/nextjs.png";
 import solidity from "../assets/solidity.png";
+import anonprofile from "../assets/anon-profile.webp";
+import ai_nft_mockup from "../assets/ai-nft-mockup.png";
+import campaign_funding from "../assets/campaign_funding.png";
+import metaversus from "../assets/meteversus.png";
+import web_nft_card_game from "../assets/web-nft-card-game.png";
+import yariga from "../assets/yariga.jpg";
+import nft_marketplace from "../assets/nft-marketplace.png";
+import calculator_app from "../assets/calculator-app.png";
 
 export default {
+  calculator_app,
+  ai_nft_mockup,
+  campaign_funding,
+  metaversus,
+  web_nft_card_game,
+  yariga,
+  nft_marketplace,
   email,
   mobile,
   api,
@@ -59,4 +74,5 @@ export default {
   mongodb,
   nextjs,
   solidity,
+  anonprofile,
 };

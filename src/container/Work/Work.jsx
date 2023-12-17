@@ -77,7 +77,7 @@ function Work() {
               <Image
                 width={1000}
                 height={1000}
-                src={urlFor(work.imageurl).url()}
+                src={work.imageurl}
                 alt={work.title}
               />
               <motion.div
